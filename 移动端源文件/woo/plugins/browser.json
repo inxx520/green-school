@@ -1,0 +1,73 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-battery-status": {
+            "PACKAGE_NAME": "woo.id.com"
+        },
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "woo.id.com"
+        },
+        "cordova-plugin-media-capture": {
+            "PACKAGE_NAME": "woo.id.com"
+        },
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "woo.id.com"
+        },
+        "cordova-plugin-contacts": {
+            "PACKAGE_NAME": "woo.id.com"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "woo.id.com"
+        },
+        "cordova-plugin-device-motion": {
+            "PACKAGE_NAME": "woo.id.com"
+        },
+        "cordova-plugin-device-orientation": {
+            "PACKAGE_NAME": "woo.id.com"
+        },
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "woo.id.com"
+        },
+        "cordova-plugin-file-transfer": {
+            "PACKAGE_NAME": "io.cordova.hellocordova"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "woo.id.com"
+        },
+        "cordova-plugin-globalization": {
+            "PACKAGE_NAME": "woo.id.com"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "woo.id.com"
+        },
+        "cordova-plugin-media": {
+            "PACKAGE_NAME": "woo.id.com"
+        },
+        "cordova-plugin-network-information": {
+            "PACKAGE_NAME": "woo.id.com"
+        },
+        "cordova-plugin-splashscreen": {
+            "PACKAGE_NAME": "woo.id.com"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "woo.id.com"
+        },
+        "cordova-plugin-vibration": {
+            "PACKAGE_NAME": "woo.id.com"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "woo.id.com"
+        }
+    },
+    "dependent_plugins": {
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "woo.id.com"
+        }
+    }
+}

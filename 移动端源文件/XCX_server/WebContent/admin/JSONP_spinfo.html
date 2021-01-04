@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title></title>
+</head>
+<body>
+    <ul id="list">temp
+    </ul>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"  type="text/javascript"></script>
+    <script type="text/javascript">
+    $(function(){
+  	  $.ajax({
+            //url: 'http://localhost:8090/XCX_server/json_02',
+            url: 'http://itcmsg.bnuz.edu.cn:8090/test/SP_info',
+            type: "GET",
+			dataType: "jsonp",
+			jsonp:'callback',
+            // 传递给后台接口，用以获得jsonp回调函数名的参数名(一般默认为:callback)              
+			jsonpCallback:"successCallback",
+            // 自定义的jsonp回调函数名称，默认为jQuery自动生成的随机函数名，
+            // 也可以写"?"，jQuery会自动为你处理数据
+          success: function(data){
+               console.log('数据：', data);
+               $("#list").html('');
+                  var spmc = data.SPMC;
+                  var spjg = data.SPJG;
+                  var spkc = data.SPKC;
+                  $("#list").html($("#list").html() + "<br>" + spmc + " - " + spjg + " - " + spkc + "<br/>");
+            },
+            error: function(){
+               alert('faile');
+            }
+        });
+   })
+    </script>
+    
+     
+</body>
+</html>

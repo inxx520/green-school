@@ -1,0 +1,98 @@
+﻿<html>
+<head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <meta name="viewport"
+            content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <link rel="stylesheet" type="text/css" href="css/Login.css" />
+    <title>Login</title>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+           // $('<audio id="chatAudio"><source src="notify.ogg" type="audio/ogg">< source src = "notify.mp3" type = "audio/mpeg" > <source src="notify.wav" type="audio/wav"></audio>').appendTo('body');
+/*             $("form").submit(function (e) {
+                
+            }); */
+
+/*             $("input").focus(function () {
+                $(document.body).css("background-color", "#1D3333");
+            }); */
+
+            $("#register").click(function () {
+                var loginName = $("#loginName").val();//val后面一定要加括号
+                var password = $("#password").val();
+                /* $(document.body).css("background", "rgba(240, 128, 128, 0.397)") */
+                if ($("#loginName").val() == "" || $("#password").val() == "") {
+                    audioElementHovertree = document.createElement('audio');
+                    
+                    alert("用户名或密码不能为空");
+                    // 震动两秒
+                    navigator.notification.vibrate(2000);
+                    navigator.vibrate(200);
+
+                    return false;
+                }else{
+                   
+                    $.ajax({
+                        url: "http://localhost:8080/XCX_server/PG_login",
+                        data: { password: password, loginName: loginName },
+                        type: "GET",//提交方式
+                        dataType: "JSON",//返回字符串，T大写
+                        success: function (data) {
+                             
+                            if (data.code==200)//data.trim 去空格,防止出错
+                                window.location.href = "index1.html";
+                            
+                               
+                        },
+                        error: function (result) {
+                            alert("账号密码错误");
+                           
+                        }
+
+                       
+                    })
+                }
+
+            })
+
+
+
+
+        });
+
+    </script>
+</head>
+<body>
+    <div class="container">
+    <table>
+    <form id="input" action="" method="get">
+        <caption>
+            <h2>- -</h2>
+        </caption>
+        <img src="img/2.jpg"/>
+                        <tr>
+                            <td><h3>用户名</h3></td>
+                            <td><input id="loginName" maxlength="6" ></td>
+                        </tr>
+                        <tr>
+                            <td><h3>密码</h3></td>
+                            <td><input id="password"  type="password"></td>
+                        </tr>
+                        <tr>
+                            <!-- <td><input type="reset" name="" value="重置" class="btn" /></td> -->
+                            <td>
+                                <a href="zc1.html"><input type="button" name="" value="注册" class="btn" /></a>
+                            </td>
+                            <td>
+                                <input id="register" type="button" value="提交" class="btn" />
+                            </td>
+
+                        </tr>
+    </form>
+    </table>
+    </div>
+
+</body>
+</html>

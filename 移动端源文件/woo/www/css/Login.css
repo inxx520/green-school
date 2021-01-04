@@ -1,0 +1,98 @@
+/*
+ * Licensed to the Apache Software Foundation (ASF) under one
+ * or more contributor license agreements.  See the NOTICE file
+ * distributed with this work for additional information
+ * regarding copyright ownership.  The ASF licenses this file
+ * to you under the Apache License, Version 2.0 (the
+ * "License"); you may not use this file except in compliance
+ * with the License.  You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing,
+ * software distributed under the License is distributed on an
+ * "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ * KIND, either express or implied.  See the License for the
+ * specific language governing permissions and limitations
+ * under the License.
+ */
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+
+
+
+/* Portrait layout (default) */
+             body{
+                /* background-color: rgba(128, 204, 240, 0.397); */
+                background-color: #548080;
+                background-repeat:no-repeat; 
+                background-position: center;
+                margin: 0 auto;
+                padding:0;
+                display: flex;
+            } 
+
+
+            .container{
+                margin: 5%;
+                margin-top: 15%;
+                border-radius: 15px;
+                flex:1;
+                margin-bottom: 20%;
+                background-color: #ffffff;
+            }
+
+            table{
+                width: 100%;
+                border-radius: 15px;
+                border:1px;
+                position: relative;
+            }
+
+            td{
+                text-align:center;
+            }
+            tr{
+                margin-bottom: 5%;
+            }
+            input{
+                border-radius: 5px;
+                height: 35px;
+                width: 80%;
+                background-color: #E6E6E6;
+            }
+            h3{
+                line-height: 50px;
+            }
+            caption{
+                margin-bottom: 5%;
+            }
+            input.btn{
+                height: 35px;
+                width: 80%;
+                border:2px solid  rgba(255, 255, 255, 0.425);
+                background-size:50%;
+                padding:0px 20px;
+                background-color: #548080;
+                color: #ffffff;
+            }
+            img{
+                margin-left: 35%;
+                margin-top: 20%;
+                margin-bottom: 5%;
+                width: 30%;
+                border-radius: 30%;
+            }
+            ::-webkit-scrollbar {
+                width: 1px;
+            }/* 滚动条整体宽度 */
+
+            ::-webkit-scrollbar-track{
+                background-color: #DAE4E5;
+            }/* 滚动条的滑轨背景颜色 */
+
+            ::-webkit-scrollbar-thumb{
+                background-color: #5e5e5e;
+                border-radius: 2px;
+            }/* 滚动条的滑块背景颜色 */

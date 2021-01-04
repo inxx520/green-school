@@ -1,0 +1,202 @@
+* {
+    -webkit-tap-highlight-color: rgba(0,0,0,0); /* make transparent link selection, adjust last value opacity 0 to 1.0 */
+}
+a{
+	text-decoration:none;
+}
+body {
+    -webkit-touch-callout: none;                /* prevent callout to copy image, etc when tap to hold */
+    -webkit-text-size-adjust: none;             /* prevent webkit from resizing text to fit */
+    -webkit-user-select: none;                  /* prevent copy paste, to allow, change 'none' to 'text' */
+    background-color:#fafafa;
+    background-attachment:fixed;
+    font-family:'HelveticaNeue-Light', 'HelveticaNeue', Helvetica, Arial, sans-serif;
+    font-size:12px;
+    height:100%;
+    margin:0px;
+    padding:0px;
+    text-transform:uppercase;
+    width:100%;
+}
+
+/* Portrait layout (default) */
+.app {
+  /*  background:url(../img/logo.png) no-repeat center top; /* 170px x 200px */
+    position:absolute;             /* position in the center of the screen */
+    left:50%;
+    top:30%;
+    height:50px;                   /* text area height */
+    width:225px;                   /* text area width */
+    text-align:center;
+    padding:180px 0px 0px 0px;     /* image height is 200px (bottom 20px are overlapped with text) */
+    margin:-115px 0px 0px -112px;  /* offset vertical: half of image height and text area height */
+                                   /* offset horizontal: half of text area width */
+}
+img {
+    width: 100%;
+    height: auto;
+    border: 0;
+}
+button {
+    outline: 0;
+}
+
+img {
+    border: 0;
+}
+
+button,input,optgroup,select,textarea {
+    margin: 0;
+    font: inherit;
+    color: inherit;
+    outline: none;
+}
+
+li {
+    list-style: none;
+}
+
+@media screen and (min-aspect-ratio: 1/1) and (min-width:400px) {
+    .app {
+        background-position:left center;
+        padding:75px 0px 75px 170px;  /* padding-top + padding-bottom + text area = image height */
+        margin:-90px 0px 0px -198px;  /* offset vertical: half of image height */
+                                      /* offset horizontal: half of image width and text area width */
+    }
+}
+
+.content{
+  background-color: #fafafa;
+  margin:5%;
+  margin-top:15%;
+}
+.title{
+  margin:10px;
+  font-size: 20px;
+  color: #333333;
+  font-weight: 700;
+}
+
+.desc{
+  margin:10px;
+  display: flex;
+  flex-direction: row;
+}
+.publish{
+  display: flex;
+  flex-direction: row;
+  width:100%;
+  margin-top:15px;
+}
+.company{
+  margin-left: 10px;
+}
+.mark{
+  border-left:1px solid #cccccc;
+  font-size: 11px;
+  margin-left: 10px;
+  padding-left:10px;
+  color: #999999;
+}
+.time{
+  font-size: 14px;
+  color: #999999;
+}
+.btn{
+ margin-top: 15px;
+}
+.article{
+  font-size: 15px;
+  line-height: 25px;
+  padding:10px;
+  color: #333333;
+    text-indent:2em;
+  word-wrap:break-word;
+  word-break:normal;
+  text-align:justify;
+  line-height: 35px;
+}
+
+.comment{
+  width:100%;
+  height: 42px;
+  background-color: #ffffff;
+  position: fixed;
+  bottom: 0px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding:0;
+  margin: 0;
+}
+.write{
+  width: 50%;
+  border:1px solid #F4F5F7;
+  margin-left: 10px;
+  border-radius: 15px;
+  font-size: 13px;
+  background-color: #ffffff;
+}
+.write input{
+  margin-left: 10px;
+  border:0;
+}
+
+.line{
+  border: 1px solid #cccccc;
+  opacity: 0.2;
+  margin-left:5%;
+  width: 90%;
+}
+.article1{
+  font-size: 15px;
+  line-height: 25px;
+  height: 25px;
+}
+.list-topic{
+  margin-bottom:10px;
+  color:#333333;
+  border-left: 5px  #4AB09C solid;
+}
+.desc1{
+  margin-bottom: 50px;
+}
+.company{
+  color: #333333;
+  font-size: 14px;
+}
+.time1{
+  font-size: 14px;
+  color: #333333;
+}
+.mark1{
+  font-size: 10px;
+  margin-left: 10px;
+  padding-left:10px;
+  color: #777777;
+}
+.company1{
+}
+
+footer{
+    width: 100%;
+    margin: 0 auto;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 7px 0px 7px 5px;
+    background: #fafafa;
+}
+.opr img{
+  margin-left: 25px;
+  margin-top:5px;
+}

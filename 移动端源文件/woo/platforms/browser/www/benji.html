@@ -1,0 +1,79 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>关于本机</title>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="css/benji.css">
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" charset="utf-8">
+
+        // Wait for device API libraries to load
+         document.addEventListener("deviceready", onDeviceReady, true);
+        // device APIs are available
+        function onDeviceReady() {
+
+            // Wait for device API libraries to load    //
+            
+            var element = document.getElementById('model');
+            element.innerHTML = "<table><tr><td class='kuan' align='center'>" +'设备模型' + "</td><td class='kuan' align='center'>" + device.model + element.innerHTML +"</td></tr></table>" ;
+            var element = document.getElementById('cordova');
+            element.innerHTML = "<table><tr><td class='kuan' align='center'>"  +'phonegap版本' + "</td><td class='kuan' align='center'>" +  device.phonegap + element.innerHTML + "</td></tr></table>";
+            var element = document.getElementById('uuid');
+            element.innerHTML = "<table><tr><td class='kuan' align='center'>"  +'设备ID' + "</td><td class='kuan' align='center'>" +  device.uuid + element.innerHTML + "</td></tr></table>";
+            var element = document.getElementById('version');
+            element.innerHTML = "<table><tr><td class='kuan' align='center'>"  +'设备版本' + "</td><td class='kuan' align='center'>" +  device.version + element.innerHTML + "</td></tr></table>";
+            var element = document.getElementById('platform');
+            element.innerHTML = "<table><tr><td class='kuan' align='center'>"  +'设备平台' + "</td><td class='kuan' align='center'>" + device.platform + element.innerHTML + "</td></tr></table>";
+
+           // alert(device.model + "----" + device.cordova + "------" + device.uuid + "-----" + device.version + "----" + device.platform);
+        }
+
+        function baozi() { alert("S1"); }
+
+       // function intent() { onDeviceReady(); }
+       // function intent() { onDeviceReady(); }
+
+
+    </script>
+
+
+
+</head>
+<body>
+    <header class="aui-navBar aui-navBar-fixed">
+        <div class="aui-center">
+            <div class="aui-center-title">关于本机</div>
+        </div>
+    </header>
+    <h1 style="font-size:14px">Example</h1>
+    <p style="font-size:14px">Find Contacts</p>
+
+    <table class="table" style="border: 1px solid darkgray;
+    width: 80%;
+    margin:0 auto;
+    border-radius: 15px;
+    margin-top: 25%;
+    color: #444444;
+    overflow: hidden;
+    font-size: 14px;">
+
+    <tr style="background: rgba(124, 189, 176, 0.74);border-top-left-radius:15px;
+  border-top-right-radius:15px;
+  border-bottom-left-radius:0px;
+  border-bottom-right-radius:0px;"><td id="model"></td></tr>
+    <tr><td id="cordova"></td></tr>
+    <tr style="background: rgba(114, 196, 179, 0.74);"><td id="version"></td></trstyle="background:>
+    <tr><td id="uuid"></td></tr>
+    <tr style="background: rgba(114, 196, 179, 0.74); border-top-left-radius:0px;
+  border-top-right-radius:0px;
+  border-bottom-left-radius:15px;
+  border-bottom-right-radius:15px;"><td id="platform"></td></tr>
+
+    </table>
+
+
+
+</body>
+</html>

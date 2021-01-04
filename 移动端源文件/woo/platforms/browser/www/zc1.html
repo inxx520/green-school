@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8"/>
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+        <title>用户注册</title>
+        <script type="text/javascript" src="jq/jquery-3.1.1.min.js"></script>
+        <script type="text/javascript">
+                $(function () {
+                    $("input[type='radio']").click(function () {
+                        $("input[type='radio'][name='" + $(this).attr('name') + "']").parent().removeClass("checked")
+                        $(this).parent().addClass("checked");
+                    });
+                
+/*          function sub() {
+            alert("注册成功");
+            window.location.href = "Login.html";
+        }  */
+                     $("#register").click(function () {
+                            var userschool = $("#userschool").val();//val后面一定要加括号
+                            var usersnum = $("#usersnum").val();
+                            var logName = $("#logName").val();
+                            var sex = $("#sex").val();
+                            var email = $("#email").val();
+                            var password = $("#password").val();
+                            var mobile = $("#mobile").val();
+                            //         $(document.body).css("background", "#E4E4E4")
+                            if ($("#logName").val() == "" || $("#password").val() == "") {
+                                alert("请输入用户名和密码");
+                                navigator.notification.vibrate(2000);
+                                navigator.vibrate(2000);
+                                return false;
+                            } else {
+                                $.ajax({
+                                    url: "http://localhost:8080/XCX_server/zhuce",
+                                    data: { userschool: userschool, usersnum: usersnum, logName: logName, sex: sex, email: email, password: password, mobile: mobile},
+                                    type: "GET",//提交方式
+                                    dataType: "JSON",//返回字符串，T大写
+                                    
+                                    success: function (data) {
+                                         alert("注册成功");
+                                        window.location.href = href = "login.html";
+/*                                          if (data.code == 200){//data.trim 去空格,防止出错
+                                            alert("注册成功");
+                                            window.location.href = href = "login.html";}
+                                        else
+                                            alert("注册失败");*/
+                                    }  
+                                });
+                            }
+
+                        }) 
+                });
+        </script>
+        <style>
+            body{
+                background-color: #548080;
+                background-repeat:no-repeat; 
+                background-position: center;
+                margin: 0 auto;
+                padding:0;
+                display: flex;
+            }
+            .container{
+                margin: 5%;
+                margin-top: 15%;
+                border-radius: 15px;
+                flex:1;
+                margin-bottom: 20%;
+                background-color: #ffffff;
+                padding-bottom: 10%;
+            }
+            table{
+                width: 100%;
+                border-radius: 15px;
+                border:1px;
+                position: relative;
+                
+            }
+            input{
+                border:1px solid rgba(255, 255, 255, 0.425);
+                border-radius: 5px;
+                height: 30px;
+                width: 80%;
+                background-color: #f5f5f5;
+                padding-left: 10%;
+                margin-bottom:5%;
+                padding-top: 2%;
+                padding-bottom: 2%;
+            }
+
+            input.btn{
+                width: 80%;
+                border:2px solid  rgba(255, 255, 255, 0.425);
+                background-size:50%;
+                padding: 0px 5px;
+                background-color: #548080;
+                color: #ffffff;
+                margin-top: 5%;
+                height: 40px;
+            }
+            select{
+                border:1px solid rgba(255, 255, 255, 0.425);
+                border-radius: 5px;
+                height: 30px;
+                width: 80%;
+                background-color: #E6E6E6;
+            }
+            textarea{
+                border:1px solid rgba(255, 255, 255, 0.425);
+                border-radius: 5px;
+                height: 80px;
+                resize:none;
+                background-color: #E6E6E6;
+                width: 80%;
+            }
+            tr{
+                margin-left: 15%;
+            }
+            td{
+                text-align:center;
+            }
+            input[type='radio']{
+                display:none;
+            }
+            .radio_label{
+				background: url(img/radio.png) no-repeat;
+				background-size:1rem 2rem;
+				display: inline-block;
+				line-height: 1rem;
+				height: 1rem;
+				text-indent:1rem;
+				margin-right:2rem;
+			}
+			.checked {
+				background-position: 0  -1rem;
+			}
+
+        ::-webkit-scrollbar {
+            width: 1px;
+        }/* 滚动条整体宽度 */
+
+        ::-webkit-scrollbar-track{
+            background-color: #DAE4E5;
+        }/* 滚动条的滑轨背景颜色 */
+
+        ::-webkit-scrollbar-thumb{
+            background-color: #5e5e5e;
+            border-radius: 2px;
+        }/* 滚动条的滑块背景颜色 */
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <form id="input" action="" method="get" style="width: 100%;">
+             <table>
+                <caption><h2>注册</h2></caption>
+                <tr><td colspan="2"><input type="text" name="userschool" id="userschool" placeholder="请输入学校全称 / 居住地址"  /></td></tr>
+                <tr><td colspan="2"><input type="number" name="usersnum"  id="usersnum" placeholder="请输入学号" /></td></tr>
+                <tr><td colspan="2"><input type="text" name="logName"  id="logName" placeholder="请真实姓名"/></td></tr>
+                <tr><td style="padding-left: 6%;width: 60px;"><h4>性别</h4></td>
+                    <td style="padding-left: 6%;"><label for="boy" class="radio_label" name="sex" id="sex">
+                    <input id="boy" class="btn" check="checked" name="ra2" type="radio" value="男"/>男</label>
+                    <label for="girl" class="radio_label">
+                    <input id="girl" class="btn" name="ra2" type="radio" value="女"/>女</label>
+                    <label for="noclear" class="radio_label">
+                    <input id="noclear" class="btn" name="ra2" type="radio" value="保密"/>保密</label></td></tr>
+                    <tr><td colspan="2"><input type="text" name="email" id="email" placeholder="请输入电子邮箱" /></td></tr>
+                    <tr><td colspan="2"><input type="text" password name="password"  id="password" placeholder="请设置6-20位登录密码"  /></td></tr>
+                <tr><td colspan="2"><input type="text" name="mobile" id="mobile"  placeholder="请输入手机号"  /></td></tr>                
+                <tr><td style="padding-left: 6%;" colspan="2"><input  id="register" type="submit" name="register" value="提交" class="btn" /></td></tr>
+             </form>
+            </table>
+        
+        </div>
+    </body>
+</html>

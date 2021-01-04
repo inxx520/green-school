@@ -1,0 +1,109 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>新闻详情</title>
+    <meta content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" name="viewport" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    <link href="css/xwxq.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+</head>
+
+<body>
+    <table id="list" style="width: 100%;padding-top:9%;"></table>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        function getUrlParam(name) {
+            var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
+            var r = window.location.search.substr(1).match(reg);  //匹配目标参数
+            if (r != null) return unescape(r[2]); return null; //返回参数值
+        }
+        $(function () {
+            $.ajax({
+                url: 'http://localhost:8080/XCX_server/PG_xwlist',
+                type: 'GET',
+                dataType: 'json',
+                timeout: 1000,
+                cache: false,
+                beforeSend: LoadFunction, //加载执行方法  
+                error: erryFunction,  //错误执行方法  
+                success: succFunction //成功执行方法  
+            })
+            function LoadFunction() {
+                $("#list").html('加载中...');
+            }
+            function erryFunction() {
+                alert("error");
+            }
+            function succFunction(data) {
+                var id = getUrlParam('id');
+/*                 var spmc;  
+                var spjg;  
+                var spkc; */
+                for (var p in data) {//遍历json数组时，这么写p为索引，0,1
+                    if (data[p].XWID == id) {
+                       // alert(data[p].SPMC + " " + data[p].SPID);
+/*                         spmc = data[p].SPMC;
+                        spjg = data[p].SPJG;
+                        spkc = data[p].SPKC; */
+                        var content = data[p].CONTENT;
+                        var xwid = data[p].XWID;
+                        var title = data[p].TITLE;
+                        var source = data[p].SOURCE;
+                        var original = data[p].ORIGINAL;
+                        var xwtime = data[p].XWTIME;
+                        var xwpic = data[p].XWPIC; 
+                        var copic = data[p].COPIC; 
+                    }
+                }
+                console.log('数据：', data);
+                $("#list").html('');
+                
+                //Ostr = Ostr + "<td style='border: 1px solid black;width: 50%;background-color:white;'><a  href='getjson_05.html ? id=" + spid + "'><div class='list-box'>" + "<img src='" + sppic + " ' mode='heightFix'><br>" + "<text class='list-tit'>" + spmc + "</text>" + "<br>" + "<text class='list-jg'>" + "评分：" + spjg + "</text>" + "<text class='list-kc'>" + "人数：" + spkc + "</text>" + "</td></div></a>";
+
+/*                 $("#list").html($("#list").html() + "<div class='content'>><div class='list-box'>" +
+                 "<img src='" + xwpic + " ' mode='heightFix'><br>" + "<div class='content'>" + title + "</div>" + "</div>"+ 
+                 "<br>" + "<text class='list-jg'>"  + xwtime + "</text>" + "<text class='list-kc'>" + source + "</text>" + "<text class='list-info'>"  
+                 + content + "</text>" + "</div></div>"); */
+
+                 $("#list").html($("#list").html() + "<div class='content'><div class= 'title' > " + title + "</div><div class='desc'><div class='publish'>" +
+                    "<img src='" + copic + "' style='width: 50px;height:50px'>"  + "<div class='company'>" + source + "<div class='attr'><span class='time'>"+xwtime+"</span>"+ "<span class='mark'>" + original + "</span>"+"</div></div></div>"+
+                    "<div class='btn'>"+"<img src='img/list/guanzhu.png' bindtap='onCollect' style='width:35px;height:35px;margin-right:15px;'>"+"</div></div>"+ "<div class='line'></div>"+
+                    "<div class='article'>" + content + "</div>" + "<div class='article1'></div>" + "</div></div>"); 
+                
+            }
+
+
+
+        })
+    </script>
+    <div class="article">
+            <div class='list-topic'><span>评论</span></div>
+            <div class="desc1">
+                <div class="publish">
+                    <div><img src="img/list/head.png" style="width:36px;height:36px;margin-top:10px;"></div>
+                    <div class="company1">
+                        <div>e</div>
+                        <div class="attr">
+                            <span class="time1">绿水青山就是金山银山！</span>
+                            <span class="mark1">回复</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <footer>
+        <div class="write"><input type="text" placeholder="欢迎发表你的观点" /></div>
+        <div class="opr">
+            <img src="img/list/talk.png" style="width:26px;height:26px;">
+            <img src="img/list/shoucang.png" style="width:26px;height:26px;">
+            <img src="img/list/share.png" style="width:26px;height:26px;">
+        </div>
+    </footer>
+
+</body>
+
+</html>

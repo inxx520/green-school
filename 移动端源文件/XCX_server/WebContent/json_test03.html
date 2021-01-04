@@ -1,0 +1,43 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <script src="jquery.js" type="text/javascript"></script>
+    <script type="text/javascript">
+    $(function(){
+  	  $.ajax({
+            //url: 'http://localhost:8090/XCX_server/json_02',
+            url: 'http://localhost:8080/XCX_server/json01',
+            type: "GET",
+			dataType: "jsonp",
+			jsonp:'callback',
+            // 传递给后台接口，用以获得jsonp回调函数名的参数名(一般默认为:callback)              
+			jsonpCallback:"successCallback",
+            // 自定义的jsonp回调函数名称，默认为jQuery自动生成的随机函数名，
+            // 也可以写"?"，jQuery会自动为你处理数据
+          success: function(data){
+               console.log('数据：', data);
+               $("#list").html('');
+               var json = eval(data); //数组       
+               $.each(json, function (index, item) {                
+                   var IdNumber = json[index].IdNumber;
+                  var Name = json[index].Name;
+                  var BirthDate = json[index].SPKC;
+                  var Address = json[index].Address;
+                  $("#list").html($("#list").html() + "<tr><td style='color:red;'>" + IdNumber + " </td><td>" + Name + "</td><td> " + BirthDate + "</td><td>"+Address+"</td></tr>");
+               });
+            },
+            
+           // http://itcmsg.bnuz.edu.cn:8090/test/pic   图片文件夹
+            error: function(){
+               alert('faile');
+            }
+        });
+   })
+    </script>
+</head>
+<body>
+    <table id="list">
+    </table>
+</body>
+</html>
